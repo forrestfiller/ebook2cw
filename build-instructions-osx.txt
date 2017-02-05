@@ -1,0 +1,50 @@
+Building ebook2cw on a Mac
+(provided by Alan Dove, N3IMU)
+
+http://fkurz.net/ham/ebook2cw.html
+
+These instructions assume that the user is comfortable building and installing
+software from the command line as "root," and understands the risks. If that
+doesn't describe you, then you probably shouldn't do this. Also, there's no
+warranty if something bad happens. 
+
+With that out of the way, here's what worked on at least one Mac Mini running OS 10.8.5:
+
+1. Install Xcode if you haven't already. It's free in the App Store. 
+
+2. Start Xcode, then go to Preferences and choose the "Downloads" tab. Under
+   "Components," click to download the Command Line Tools and install them.
+
+3. Download and install the pre-compiled Mac binary for the LAME MP3 encoder
+  http://thalictrum.com/en/products/lame
+
+4. Download the source code for ebook2cw. Put the folder someplace convenient
+   on your hard drive, then open and read the README file. 
+
+5. Start Terminal and navigate to the directory where you put the source code.
+   Enter the following commands:
+
+   sudo make USE_OGG=NO
+
+   sudo make install
+    ***If you get errors at /local/ before bin and share in path
+6. Still in the Terminal, navigate to the Desktop. Find or create a short text
+   file to test the program. If you name this file testfile.txt and put it onto
+   your desktop, you can then type the command:
+
+   ebook2cw testfile.txt
+
+   A moment later, a file called Chapter0000.mp3 should appear on your desktop.
+   The -o flag described in the instructions doesn't seem to work, so the program
+   puts its output file in whatever directory you're in when you run it, and uses
+   its default naming scheme. Just change the file name afterward if you prefer
+   something else.
+
+7. The first run of the program should create a hidden directory in your home
+   directory, called .ebook2cw, and add a copy of the ebook2cw.conf file to it.
+   You can edit this file to set your favorite parameters, so you don't have to
+   enter them manually every time you use the program. To do this, type:
+
+   nano ~/.ebook2cw/ebook2cw.conf
+
+   then adjust or insert the settings you want and "Write out" (save) the file.
