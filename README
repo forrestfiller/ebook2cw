@@ -20,7 +20,7 @@ INSTALL
 Statically compiled binaries are available at the project website, for Linux
 (i386) and Win32. Those should be suitable for most users.
 
-2) Source
+2) Source - Note: I changed the the paths in the makefile to /local/ to avoid build errors.
 A Makefile is included; it compiles both under Linux and Windows (with MinGW).
 DESTDIR is /usr by default (so the binary will be in /usr/bin/).
 Support for LAME and/or OGG can be disabled by USE_LAME=NO and USE_OGG=NO
